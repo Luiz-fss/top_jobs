@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:top_jobs/features/shared/components/custom_text.dart';
 
 class SplashScreen extends StatelessWidget {
   const SplashScreen({super.key});
@@ -11,13 +12,8 @@ class SplashScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(
-              "te.",
-              style: TextStyle(
-                fontSize: 150
-              ),
-            ),
-            CircularProgressIndicator.adaptive()
+            CustomText(text: "te.", fontSize: 150),
+            CircularProgressIndicator.adaptive(),
           ],
         ),
       ),
