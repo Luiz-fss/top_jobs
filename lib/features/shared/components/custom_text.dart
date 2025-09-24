@@ -10,7 +10,7 @@ class CustomText extends StatelessWidget {
     return  Text(
       text,
       style: TextStyle(
-          fontSize: 150
+          fontSize: fontSize
       ),
     );
   }

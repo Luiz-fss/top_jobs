@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:top_jobs/configs/theme/app_theme.dart';
 import 'package:top_jobs/features/auth/ui/screens/splash_screen/splash_screen.dart';
 
+import 'features/auth/ui/screens/sigin_in_screen/signin_screen.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -14,8 +16,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'te',
-      theme: AppTheme().getTheme(false),
-      home:  SplashScreen(),
+      theme: AppTheme().getTheme(true),
+      home:  SigninScreen(),
     );
   }
 }
