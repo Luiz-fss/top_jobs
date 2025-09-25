@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:top_jobs/features/shared/helpers/sizedbox_extension.dart';
 
 import '../../../../shared/components/custom_text.dart';
 import '../../../../shared/components/custom_text_form_field.dart';
@@ -14,7 +15,7 @@ class SignupScreen extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.all(20),
           child: Column(
-            spacing: 20,
+            spacing: 25,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               CustomText(
@@ -42,12 +43,14 @@ class SignupScreen extends StatelessWidget {
                 prfixIcon: Icon(Icons.security),
               ),
 
+              30.height,
               FilledButton(
                 onPressed: (){},
-                child: Text(
-                    "Sign Up"
+                child: CustomText(
+                   text:  "Sign Up"
                 ),
-              )
+              ),
+
             ],
           ),
         ),

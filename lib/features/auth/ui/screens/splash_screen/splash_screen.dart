@@ -1,8 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:top_jobs/configs/router/app_router.dart';
 import 'package:top_jobs/features/shared/components/custom_text.dart';
-
-class SplashScreen extends StatelessWidget {
+import 'package:go_router/go_router.dart';
+class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
+
+  @override
+  State<SplashScreen> createState() => _SplashScreenState();
+}
+
+class _SplashScreenState extends State<SplashScreen> {
+  @override
+  void initState() {
+    super.initState();
+    Future.delayed(Duration(milliseconds: 1000),(){
+      if(mounted){
+        context.push(introScreen);
+      }
+    });
+  }
 
   @override
   Widget build(BuildContext context) {

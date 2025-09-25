@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:top_jobs/configs/router/app_router.dart';
 import 'package:top_jobs/configs/theme/app_theme.dart';
 import 'package:top_jobs/features/auth/ui/screens/splash_screen/splash_screen.dart';
 
@@ -13,11 +14,11 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       debugShowCheckedModeBanner: false,
       title: 'te',
       theme: AppTheme().getTheme(true),
-      home:  SigninScreen(),
+      routerConfig: router,
     );
   }
 }
