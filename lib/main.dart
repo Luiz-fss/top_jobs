@@ -1,11 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:top_jobs/configs/constants/env/envs.dart';
 import 'package:top_jobs/configs/router/app_router.dart';
 import 'package:top_jobs/configs/theme/app_theme.dart';
 import 'package:top_jobs/features/auth/ui/screens/splash_screen/splash_screen.dart';
 
 import 'features/auth/ui/screens/sigin_in_screen/signin_screen.dart';
 
-void main() {
+void main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+
+  await Enviroment.initEnviroment();
+
   runApp(const MyApp());
 }
 
