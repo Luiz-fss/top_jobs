@@ -19,9 +19,36 @@ class HttpClientImpl implements HttpClient {
     }on DioException catch(e){
       final statusCode = e.response?.statusCode;
       final serverMessage = e.response?.data["message"];
-      return Left(Failure(message: serverMessage,code: statusCode));
+      final errorMessage = _mapDioErrorToMessage(e, serverMessage);
+      return Left(Failure(message: errorMessage,code: statusCode));
     }catch(e){
-      return Left(Failure(message: "Unxpect error",));
+      return Left(Failure(message: "Unxpected error",));
     }
+  }
+}
+
+String _mapDioErrorToMessage(DioException e, String? serviceMessage){
+  if(serviceMessage?.isNotEmpty == true){
+    return serviceMessage!;
+  }
+  final statusCode = e.response?.statusCode;
+  switch(e.type){
+    case DioException.connectionTimeout:
+    case DioException.sendTimeout:
+    case DioException.receiveTimeout:
+      return "Request timeout";
+
+    case DioException.badResponse:
+      return switch(statusCode){
+        401=>"Unauthorized please check your credtials",
+        403=>"Access forbidden",
+        500=>"Internal server error",
+        _=>"Server Error: $statusCode"
+      };
+
+    case DioExceptionType.unknown:
+    default:
+      return "Unknow or network error";
+
   }
 }
